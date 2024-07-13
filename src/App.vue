@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue';
-import EmitPropertiesBasic from './emitProperties/EmitPropertiesBasic.vue';
-import EmitPropertiesArgs from './emitProperties/EmitPropertiesArgs.vue';
-import DefineEmitOption1 from './defineEmits/DefineEmitOption1.vue';
-import DefineEmitOption2 from './defineEmits/DefineEmitOption2.vue';
+import HelloWorld from "./components/HelloWorld.vue";
+import EmitPropertiesBasic from "./emitProperties/EmitPropertiesBasic.vue";
+import EmitPropertiesArgs from "./emitProperties/EmitPropertiesArgs.vue";
+import DefineEmitOption1 from "./defineEmits/DefineEmitOption1.vue";
+import DefineEmitOption2 from "./defineEmits/DefineEmitOption2.vue";
 
 const emitPropertiesBasic = () => {
-  alert('emit properties basic');
+  alert("emit properties basic");
 };
 
-const emitPropertiesArgs = (e, saludo) => {
-  const msj = `${saludo} ${e.target.value}`;
+const emitPropertiesArgs = (e: Event, saludo: string) => {
+  const inputKeyup = e.currentTarget as HTMLInputElement;
+  const msj = `${saludo} ${inputKeyup.value}`;
   alert(msj);
 };
 

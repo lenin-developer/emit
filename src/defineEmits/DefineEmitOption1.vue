@@ -1,8 +1,9 @@
 <script setup lang="ts">
 // esta opcion es la mas nueva 3.3+
+
 const emit = defineEmits<{
   myEmitDefine: [arg1: number, arg2: string];
-  myEmitDefineEvent: [event: Event, mensaje: string]
+  myEmitDefineEvent: [mensaje: string]
 }>();
 
 const saludar = () => {
@@ -13,9 +14,11 @@ const saludar = () => {
 };
 
 
-const saludarEvent = (e) => {
-  const msj = e?.target?.value
+const saludarEvent = (e: Event) => {
+  const imputkeyup = (e.target as HTMLInputElement);
+  const msj = imputkeyup?.value;
   const res = emit('myEmitDefineEvent', msj);
+  console.log('res',res)
 };
 
 
